@@ -33,15 +33,6 @@ obexd_builtin_sources += obexd/plugins/opp.c
 obexd_builtin_modules += ftp
 obexd_builtin_sources += obexd/plugins/ftp.c obexd/plugins/ftp.h
 
-obexd_builtin_modules += irmc
-obexd_builtin_sources += obexd/plugins/irmc.c
-
-obexd_builtin_modules += pbap
-obexd_builtin_sources += obexd/plugins/pbap.c \
-				obexd/plugins/vcard.h obexd/plugins/vcard.c \
-				obexd/plugins/phonebook.h \
-				obexd/plugins/phonebook-dummy.c
-
 obexd_builtin_modules += mas
 obexd_builtin_sources += obexd/plugins/mas.c obexd/src/map_ap.h \
 				obexd/plugins/messages.h \

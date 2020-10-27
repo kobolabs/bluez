@@ -24,7 +24,7 @@ fi
 		--enable-sap \
 		--disable-health \
 		--disable-sixaxis \
-		--disable-obex \
+		--enable-obex \
 		--disable-midi \
 		--disable-mesh \
 		--enable-logger \
