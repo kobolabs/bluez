@@ -22,7 +22,7 @@ fi
 		--enable-tools \
 		--enable-deprecated \
 		--disable-nfc \
-		--enable-sap \
+		--disable-sap \
 		--disable-health \
 		--disable-sixaxis \
 		--enable-obex \
