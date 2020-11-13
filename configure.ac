@@ -246,12 +246,8 @@ fi
 
 AC_ARG_ENABLE(obex, AC_HELP_STRING([--disable-obex],
 		[disable OBEX profile support]), [enable_obex=${enableval}])
-if (test "${enable_obex}" != "no"); then
-	PKG_CHECK_MODULES(ICAL, libical, dummy=yes,
-					AC_MSG_ERROR(libical is required))
-	AC_SUBST(ICAL_CFLAGS)
-	AC_SUBST(ICAL_LIBS)
-fi
+AC_SUBST(ICAL_CFLAGS)
+AC_SUBST(ICAL_LIBS)
 AM_CONDITIONAL(OBEX, test "${enable_obex}" != "no")
 
 AC_ARG_ENABLE(btpclient, AC_HELP_STRING([--enable-btpclient],
