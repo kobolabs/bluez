@@ -1,0 +1,38 @@
+#!/bin/sh
+
+if [ -f config.status ]; then
+	make maintainer-clean
+fi
+
+./bootstrap-kobo && \
+	CFLAGS="-D_GNU_SOURCE -I/chroot/include" \
+	LDFLAGS="-L/chroot/lib -lglib-2.0 -liconv -ldbus-1 -lreadline -lncurses" \
+	GLIB_CFLAGS="-I/chroot/include/glib-2.0" \
+	GLIB_LIBS="-lglib-2.0 -liconv" \
+	DBUS_CFLAGS="-I/chroot/include/dbus-1.0 -I/chroot/lib/dbus-1.0/include" \
+	DBUS_LIBS="-ldbus-1" \
+	./configure --prefix=/ \
+		--host=arm-linux \
+		--sysconfdir=/etc \
+		--with-sysroot=/chroot \
+		--with-dbusconfdir=/etc/dbus-1/ \
+		--with-dbussystembusdir=/usr/share/dbus-1/system-services/ \
+		--with-dbussessionbusdir=/usr/share/dbus-1/services/ \
+		--enable-library \
+		--localstatedir=/var \
+		--enable-tools \
+		--enable-deprecated \
+		--disable-nfc \
+		--disable-sap \
+		--disable-health \
+		--disable-sixaxis \
+		--enable-obex \
+		--disable-midi \
+		--disable-mesh \
+		--enable-logger \
+		--disable-udev \
+		--disable-systemd \
+		--disable-cups \
+		--enable-shared \
+		--disable-static \
+		--disable-datafiles $*
