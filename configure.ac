@@ -360,9 +360,9 @@ if (test "${prefix}" = "NONE"); then
 fi
 
 if (test "$localstatedir" = '${prefix}/var'); then
-	storagedir="${prefix}/var/lib/bluetooth"
+	storagedir="${prefix}/var/db/bluetooth"
 else
-	storagedir="${localstatedir}/lib/bluetooth"
+	storagedir="${localstatedir}/db/bluetooth"
 fi
 AC_DEFINE_UNQUOTED(STORAGEDIR, "${storagedir}",
 			[Directory for the storage files])
