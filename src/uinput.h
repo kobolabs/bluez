@@ -509,9 +509,14 @@ extern "C" {
 #define KEY_BRL_DOT9		0x1f9
 #define KEY_BRL_DOT10		0x1fa
 
+#define KEY_RIGHT_UP		0x266
+#define KEY_RIGHT_DOWN		0x267
+#define KEY_LEFT_UP		0x268
+#define KEY_LEFT_DOWN		0x269
+
 /* We avoid low common keys in module aliases so they don't get huge. */
 #define KEY_MIN_INTERESTING	KEY_MUTE
-#define KEY_MAX			0x1ff
+#define KEY_MAX			0x300
 #define KEY_CNT			(KEY_MAX+1)
 
 /*
