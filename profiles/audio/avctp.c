@@ -426,6 +426,9 @@ static size_t handle_panel_passthrough(struct avctp *session,
 	}
 
 	if (key_map[i].name == NULL) {
+		if ((operands[0] & 0x7F) == AVC_VENDOR_UNIQUE)
+			goto done;
+
 		DBG("AV/C: unknown button 0x%02X %s",
 						operands[0] & 0x7F, status);
 		*code = AVC_CTYPE_NOT_IMPLEMENTED;
