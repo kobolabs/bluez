@@ -1180,10 +1180,16 @@ static GList *media_player_list_metadata(void *user_data)
 static uint64_t media_player_get_uid(void *user_data)
 {
 	struct media_player *mp = user_data;
+	const char *title;
 
 	DBG("%p", mp->track);
 
 	if (mp->track == NULL)
+		return UINT64_MAX;
+
+	title = g_hash_table_lookup(mp->track, "Title");
+
+	if (!strcmp(title, ""))
 		return UINT64_MAX;
 
 	return 0;
