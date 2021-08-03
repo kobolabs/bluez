@@ -39,6 +39,7 @@
 
 #include "src/plugin.h"
 #include "src/adapter.h"
+#include "src/btd.h"
 #include "src/device.h"
 #include "src/profile.h"
 #include "src/service.h"
@@ -4125,8 +4126,10 @@ static void target_init(struct avrcp *session)
 		target->player = player;
 		player->sessions = g_slist_prepend(player->sessions, session);
 
-		init_volume = media_player_get_device_volume(session->dev);
-		media_transport_update_device_volume(session->dev, init_volume);
+		if (btd_opts.init_volume) {
+			init_volume = media_player_get_device_volume(session->dev);
+			media_transport_update_device_volume(session->dev, init_volume);
+		}
 	}
 
 	session->supported_events |= (1 << AVRCP_EVENT_STATUS_CHANGED) |
