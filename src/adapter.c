@@ -8448,6 +8448,9 @@ static void store_ltk_group(struct btd_adapter *adapter, const bdaddr_t *peer,
 		g_error_free(gerr);
 	}
 
+	/* Old files may contain this so remove it in case it exists */
+	g_key_file_remove_key(key_file, "LongTermKey", "Master", NULL);
+
 	for (i = 0; i < 16; i++)
 		sprintf(key_str + (i * 2), "%2.2X", key[i]);
 
