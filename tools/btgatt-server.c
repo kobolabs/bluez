@@ -20,7 +20,6 @@
 #include <getopt.h>
 #include <unistd.h>
 #include <errno.h>
-#include <sys/random.h>
 
 #include "lib/bluetooth.h"
 #include "lib/hci.h"

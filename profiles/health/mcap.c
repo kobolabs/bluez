@@ -19,7 +19,6 @@
 #include <errno.h>
 #include <unistd.h>
 #include <time.h>
-#include <sys/random.h>
 
 #include <glib.h>
 
@@ -28,6 +27,7 @@
 #include "btio/btio.h"
 #include "src/log.h"
 #include "src/shared/timeout.h"
+#include "src/shared/util.h"
 
 #include "mcap.h"
 

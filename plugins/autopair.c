@@ -17,7 +17,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
-#include <sys/random.h>
 
 #include <glib.h>
 
@@ -29,6 +28,7 @@
 #include "src/device.h"
 #include "src/log.h"
 #include "src/storage.h"
+#include "src/shared/util.h"
 
 /*
  * Plugin to handle automatic pairing of devices with reduced user

@@ -14,6 +14,12 @@
 #include <alloca.h>
 #include <byteswap.h>
 #include <string.h>
+#ifdef HAVE_SYS_RANDOM_H
+#include <sys/random.h>
+#else
+#include <sys/syscall.h>
+#define getrandom(buf, buflen, flags) syscall(SYS_getrandom, buf, buflen, flags)
+#endif
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 #define BIT(n)  (1 << (n))
