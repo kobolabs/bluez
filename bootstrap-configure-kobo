@@ -5,7 +5,7 @@ if [ -f config.status ]; then
 fi
 
 ./bootstrap-kobo && \
-	CFLAGS="-DKEY_RIGHT_UP=0x266 -DKEY_RIGHT_DOWN=0x267 -DKEY_LEFT_UP=0x268 -DKEY_LEFT_DOWN=0x269 -I/chroot/include" \
+	CFLAGS="-D__KOBO_LETS_PASS_PTS__ -DKEY_RIGHT_UP=0x266 -DKEY_RIGHT_DOWN=0x267 -DKEY_LEFT_UP=0x268 -DKEY_LEFT_DOWN=0x269 -I/chroot/include" \
 	LDFLAGS="-L/chroot/lib -lglib-2.0 -liconv -ldbus-1 -lreadline -lncurses" \
 	GLIB_CFLAGS="-I/chroot/include/glib-2.0" \
 	GLIB_LIBS="-lglib-2.0 -liconv" \

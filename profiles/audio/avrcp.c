@@ -4773,6 +4773,7 @@ static int avrcp_controller_server_probe(struct btd_profile *p,
 		return -EPROTONOSUPPORT;
 
 done:
+#if !defined(__KOBO_LETS_PASS_PTS__)
 	record = avrcp_ct_record(server->browsing);
 	if (!record) {
 		error("Unable to allocate new service record");
@@ -4787,6 +4788,7 @@ done:
 		return -1;
 	}
 	server->ct_record_id = record->handle;
+#endif
 
 	return 0;
 }
